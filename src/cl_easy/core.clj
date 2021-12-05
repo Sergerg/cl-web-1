@@ -13,10 +13,13 @@
   (* a b c))
 
 (defn str-to-vector
-  [str]
-  (str/split str #" "))
+  [s]
+  (map #(str/capitalize %) 
+       (str/split s #" ")))
 
-
+(defn vector-to-text
+  [v]
+  (str/join " " v))
 
 (defn -main
   "I don't do a whole lot ... yet."
