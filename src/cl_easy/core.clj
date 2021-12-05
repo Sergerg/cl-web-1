@@ -1,4 +1,5 @@
 (ns cl-easy.core
+  (require '[clojure.string :as str])
   (:gen-class))
 
 (defn sss
@@ -10,6 +11,12 @@
   "Easy func! Concat 2 param"
   [a b c]
   (* a b c))
+
+(defn str-to-vector
+  [str]
+  (str/split str #" "))
+
+
 
 (defn -main
   "I don't do a whole lot ... yet."
