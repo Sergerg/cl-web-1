@@ -6,6 +6,16 @@ FIXME: description
 
 Download from http://example.com/FIXME.
 
+## Run
+
+    $ lein run
+
+## Build
+
+One jar
+
+    $ lein uberjar
+
 ## Usage
 
 FIXME: explanation
