@@ -1,5 +1,5 @@
 (ns cl-easy.core
-  (require '[clojure.string :as str])
+  (:require [clojure.string :as str])
   (:gen-class))
 
 (defn sss
@@ -25,7 +25,9 @@
   "I don't do a whole lot ... yet."
   [& args]
   (println 
-    (sss "Hello, World! " 
-         "Str\n"))
+    (vector-to-text
+      (str-to-vector
+        (sss "Hello, world! "
+          "str"))))
   (println (mmm 11 22 33))
   (println (mmm 12 12 12)))
