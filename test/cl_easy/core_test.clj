@@ -4,4 +4,8 @@
 
 (deftest a-test
   (testing "FIXME, I fail."
-    (is (= 0 1))))
+    (is (= 1 1))))
+
+(deftest str-to-vector-test
+  (testing "str-to-vector"
+    (is (= ["1" "2" "Ss"] (str-to-vector "1 2 ss")))))
