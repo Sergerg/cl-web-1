@@ -36,6 +36,27 @@
 ;; (char-to-num nil)
 ;; (char-to-num 1)
 
+(defn str-to-rome-num
+  ""
+  [str]
+  (map char-to-num (str/split str #"")))
+
+;; (str-to-rome-num "XVI")
+
+(defn make-pairs
+  "Пары в списке"
+  [l]
+  (conj (mapv vector l (drop 1 l))
+        (vector (last l) 1)))
+
+;; (make-pairs (str-to-rome-num "XVI"))
+;; (make-pairs (str-to-rome-num "XIV"))
+
+;; (defn count-num
+;;   "Веса позиций"
+;;   [v]
+;;   (mapv #(if  ) v))
+
 (defn translate-roman-numerals
   "Римские цифры в арабские"
   [str]
@@ -43,3 +64,7 @@
 
 ;; (translate-roman-numerals "XXX")
 
+
+(let [a '(10 10 10) ] (print a))
+(def inp (list 1 2 3 4))
+(map vector inp (drop 1 inp))
