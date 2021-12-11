@@ -30,4 +30,7 @@
         (sss "Hello, world! "
           "str"))))
   (println (mmm 11 22 33))
-  (println (mmm 12 12 12)))
+  (println (mmm 12 12 12))
+  (println (->>  "sss d  f r 444 fr43 ffr4fr"
+                 (str-to-vector)
+                 (vector-to-text))))
