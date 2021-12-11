@@ -3,7 +3,7 @@
             [cl-easy.core :refer :all]))
 
 (deftest a-test
-  (testing "FIXME, I fail."
+  (testing "FIXME, if I fail."
     (is (= 1 1))))
 
 (deftest str-to-vector-test
