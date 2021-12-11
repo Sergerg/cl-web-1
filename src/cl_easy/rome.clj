@@ -69,7 +69,12 @@
 (defn translate-roman-numerals
   "Римские цифры в арабские"
   [str]
-  (reduce + (count-num (make-pairs (str-to-rome-num str)))))
+  ;;(reduce + (count-num (make-pairs (str-to-rome-num str))))
+  (->> str
+       (str-to-rome-num)
+       (make-pairs)
+       (count-num)
+       (reduce +)))
 
 ;; (translate-roman-numerals "XXX")
 ;; (translate-roman-numerals "XVI")
