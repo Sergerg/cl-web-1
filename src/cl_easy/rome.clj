@@ -52,19 +52,30 @@
 ;; (make-pairs (str-to-rome-num "XVI"))
 ;; (make-pairs (str-to-rome-num "XIV"))
 
-;; (defn count-num
-;;   "Веса позиций"
-;;   [v]
-;;   (mapv #(if  ) v))
+(defn count-num
+  "Веса позиций"
+  [v]
+  (mapv #(let [i1 (% 0) i2 (% 1)]
+           (if (< i1 i2) (- i1) i1))
+        v))
+
+;; (count-num (make-pairs (str-to-rome-num "XIV")))
+
+(defn translate-roman-numerals-1
+  "Римские цифры в арабские"
+  [str]
+  (reduce + (count-num (make-pairs (str-to-rome-num str)))))
 
 (defn translate-roman-numerals
   "Римские цифры в арабские"
   [str]
-  (reduce + (map char-to-num (str/split str #""))))
+  (reduce + (count-num (make-pairs (str-to-rome-num str)))))
 
 ;; (translate-roman-numerals "XXX")
+;; (translate-roman-numerals "XVI")
+;; (translate-roman-numerals "XIV")
+;; (translate-roman-numerals "CDXLIX")
+;; (translate-roman-numerals "CMXCIX")
 
 
-(let [a '(10 10 10) ] (print a))
-(def inp (list 1 2 3 4))
-(map vector inp (drop 1 inp))
+
