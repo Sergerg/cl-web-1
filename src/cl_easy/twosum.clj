@@ -3,7 +3,7 @@
 
 (defn chk-sum-log [lst1 size sum]
   (let [first1 (first lst1)]
-    (loop [lst2 (rest lst1)]
+    (loop [lst2 (next lst1)]
       (let [pos1 (- size (count lst1))
             pos2 (- size (count lst2))
             flag (not= sum (+ first1 (first lst2)))]
@@ -13,9 +13,11 @@
         (println "  =" lst2
                  (count lst2)
                  "first1=" first1)
-        (if (and lst2 flag)
+        (if (and lst2 flag (next lst2))
           (recur (next lst2))
-          (vector pos1 pos2))))))
+          (when (not flag)
+            (vector pos1 pos2))
+          )))))
 
 ;; 
 (defn twosum-log [arr sum]
@@ -39,9 +41,10 @@
       (let [pos1 (- size (count lst1))
             pos2 (- size (count lst2))
             flag (not= sum (+ first1 (first lst2)))]
-        (if (and lst2 flag)
+        (if (and lst2 flag (next lst2))
           (recur (next lst2))
-          (vector pos1 pos2))))))
+          (when (not flag)
+            (vector pos1 pos2)))))))
 
 ;; TODO: here
 (defn twosum [numbers target]
