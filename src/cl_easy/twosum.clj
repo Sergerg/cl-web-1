@@ -47,7 +47,6 @@
           (when (not flag)
             (vector pos1 pos2)))))))
 
-;; TODO: here
 (defn twosum [numbers target]
   (let [size (count numbers)]
     (loop [lst1 numbers]
@@ -58,3 +57,13 @@
             (when res
               res)))))))
 
+
+; nice example!!!
+; Так надо было делать! как понимаю лениво по шаблону перебор 
+(defn twosum1 [numbers target]
+  (first
+   (for [i (range (count numbers))
+         j (range (count numbers))
+         :when (and (not= i j)
+                    (= target (+ (nth numbers i) (nth numbers j))))]
+     [i j])))
