@@ -28,12 +28,13 @@
       (println "-" lst1
                (count lst1)
                (- size (count lst1)))
-      (let [res (chk-sum-log lst1 size sum)]
-        (println "- res=" res)
-        (if (and (not res) lst1)
-          (recur (next lst1))
-          (when res
-            res))))))
+      (when (next lst1)
+       (let [res (chk-sum-log lst1 size sum)]
+         (println "- res=" res)
+         (if (and (not res) lst1 (next lst1))
+           (recur (next lst1))
+           (when res
+             res)))))))
 
 (defn chk-sum [lst1 size sum]
   (let [first1 (first lst1)]
@@ -50,9 +51,10 @@
 (defn twosum [numbers target]
   (let [size (count numbers)]
     (loop [lst1 numbers]
-      (let [res (chk-sum lst1 size target)]
-        (if (and (not res) lst1)
-          (recur (next lst1))
-          (when res
-            res))))))
+      (when (next lst1)
+        (let [res (chk-sum lst1 size target)]
+          (if (and (not res) lst1 (next lst1))
+            (recur (next lst1))
+            (when res
+              res)))))))
 
