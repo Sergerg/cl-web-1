@@ -22,7 +22,7 @@
              (conj lst (mod num 10)))
       (reduce +
               (for [i (range (count lst))]
-                (Math/pow (nth lst i) (+ i 1)))))))
+                (int (Math/pow (nth lst i) (+ i 1))))))))
 
 (defn dig
   [num1]
@@ -33,11 +33,21 @@
              (conj lst (mod num 10)))
       (reduce +
               (for [i (range (count lst))]
-                (Math/pow (nth lst i) (+ i 1)))))))
+                (int (Math/pow (nth lst i) (+ i 1))))))))
 
 
 ;; 89 = 8^1+9^2
 (defn sum-dig-pow [a b]
-  [1 2] ; your code
+  (for [i (range a (+ b 1)) 
+        :when (= i (dig i))] 
+    i)
   )
 
+;; Best
+(defn sum-dig-pow1 [a b]
+  (filter (fn [x]
+            (= (reduce + 0 (map-indexed 
+                            (fn [i a] 
+                              (reduce * 1 (repeat (+ i 1) (- (int a) (int \0))))) 
+                            (str x))) x))
+          (range a (+ b 1))))
