@@ -76,11 +76,14 @@
        (count-num)
        (reduce +)))
 
-;; (translate-roman-numerals "XXX")
-;; (translate-roman-numerals "XVI")
-;; (translate-roman-numerals "XIV")
-;; (translate-roman-numerals "CDXLIX")
-;; (translate-roman-numerals "CMXCIX")
+;; Для проверки в репле...
+(comment
+  (translate-roman-numerals "XXX")
+  (translate-roman-numerals "XVI")
+  (translate-roman-numerals "XIV")
+  (translate-roman-numerals "CDXLIX")
+  (translate-roman-numerals "CMXCIX")
+  )
 
 
 
