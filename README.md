@@ -2,6 +2,8 @@
 
 FIXME: description
 
+Решение задач и прокачка навыков на https://www.codewars.com/kata/latest
+
 ## Installation
 
 Download from http://example.com/FIXME.
