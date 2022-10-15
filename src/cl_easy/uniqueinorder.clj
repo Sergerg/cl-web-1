@@ -4,32 +4,46 @@
 
 ;; AAABCCcAAA -> [\A \B \C \c \A]
 
-(defn uniqueInOrder
-  [l]
-  (seq l))
+;; (defn unique-in-order [input]
+;;   ; happy coding!  
+;;   )
 
-(defn str-to-vector "не нужна -> seq"
-  [s]
-  (str/split s #""))
+(defn uniqueInOrderList [l]
+  (loop [n (first l) list (rest l) res []] ;; this works just like a 'let' binding.
+    (println n list res)
+    ;;(println "===" (= n (first list)))
+    (if (= (count list) 0)  ;; this is the base case.
+      (if (= n (first list)) res (conj res n))
+      (recur
+       (first list)
+       (rest list)
+       (if (= n (first list)) res (conj res n))))))
 
-(defn lll "HZ-func"
-  [l] 
-  (vector (last l) 1))
+(defn unique-in-order [input]
+  (->> input
+      (seq)
+      (uniqueInOrderList))
+  )
 
 (comment
   ;; Отладка?
-  (str/split "123" #"")
-  (lll [1 2 3])
+  (uniqueInOrderList '(1 2 3 -1 -1 4))
+  (uniqueInOrderList [1 2 3 3])
 
-  ;;(str-to-vector "aaaa") ;; X
-  ;;(str-to-vector [1 2]) ;; !!! X
-  (uniqueInOrder "aaasss")
-  (uniqueInOrder [1 2 3])
+  (unique-in-order "123")
+  (unique-in-order "aaaSSSwwwЫЫЫ1ыЦЦЦЦ")
+  (unique-in-order [1 2 3])
+
+  (str/split "123" #"")
+  (= 1 1)
+
+  (count '())
+
+  (unique-in-order "aaasss")
+  (unique-in-order [1 2 3])
 
   (set [1 2 2])
   
-  (set (str-to-vector "aaaSSSwwwЫЫЫ1ыЦЦЦЦ"))
-
   (seq "123")
   (seq "aaaSSSwwwЫЫЫ1ыЦЦЦЦ")
   (seq [1 2 3])
