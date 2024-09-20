@@ -34,3 +34,5 @@
   (println (->>  "sss d  f r 444 fr43 ffr4fr"
                  (str-to-vector)
                  (vector-to-text))))
+
+
